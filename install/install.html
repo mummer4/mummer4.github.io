@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../index.css">
+    <title>MUMmer Installation</title>
+</head>
+<body id="head">
+    <!-- <a href="http://github.com/mummer4/mummer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a> -->
+    <header class="navbar">
+        <div class="Row">
+            <form class="login">
+                <h1>MUMmer</h1>
+                <a href="https://api.github.com/repos/mummer4/mummer/tarball/master"><img src="../icons/tar.png" id="tarBtn" onmouseover="this.src='../icons/tarHover.png'" onmouseout="this.src='../icons/tar.png'"></img></a>
+                <a href="https://api.github.com/repos/mummer4/mummer/zipball/master"><img src="../icons/zip.png" id="zipBtn" onmouseover="this.src='../icons/zipHover.png'" onmouseout="this.src='../icons/zip.png'"></img></a>
+            </form>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../manual/manual.html">Manual</a></li>
+                <li><a href="../install/install.html">Installation</a></li>
+                <li><a href="../tutorial/tutorial.html">Tutorials</a></li>
+                <li><a href="../release/release.html">Releases</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contents">
+        <div class="sub">
+            <h1>Dependencies</h1>
+            <p>If compiling from a <a href="https://github.com/mummer4/mummer/releases">release source tarball</a> you need a recent version of the GCC compiler (g++ version >= 4.7) and other essential tools for compilation (GNU make, ar, etc. Install <a class="inComm">build-essential</a> on Debian or Ubuntu derivatives). Additional requirements are needed to compile the SWIG script bindings. See the <a href="https://github.com/mummer4/mummer/blob/master/swig/INSTALL.md">SWIG installation guide</a>.</p>
+        </div>
+        <div class="sub">
+            <h1>Compilation & Installation</h1>
+            <p>To compile and install:</p>
+
+            <p class="comm">./configure --prefix=/path/to/installation
+            make
+            make install</p>
+
+            <p>If <a class="inComm">--prefix<a> is omitted, the software is installed in <a class="inComm">/usr/local</a>. One may need <a class="inComm">sudo make install</a> if installing in a system location.</p>
+        </div>
+        <div class="sub">
+            <h1>Software Requirements</h1>
+            <p>The MUMmer4.x package requires the following to run successfully. In the absence of one or more of these utilities, certain MUMmer programs may fail to run correctly. In parenthesis the minimum version. These utilities must be accessible via the system path:</p>
+            <li> perl5 (5.6.0)</li>
+            <li> sh</li>
+            <li> sed</li>
+            <li> awk</li>
+            </br></br>
+
+            <b>Optional: </b>To use the visualization tools included with MUMmer, it may be
+            necessary to install the following utilities:</p>
+            <li> fig2dev (3.2.3)</li>
+            <li> gnuplot (4.0)</li>
+            <li> xfig    (3.2)</li>
+        </div>
+        <div class="sub">
+            <h1>Uninstallation</h1>
+            <p>In the "MUMmer4.x" base directory type: <p class="comm">make uninstall</p></p>
+        </div>
+    </div>
+    <a href="#head"><img src="../icons/up.png" id="upBtn" onmouseover="this.src='../icons/upHover.png'"
+onmouseout="this.src='../icons/up.png'"></a>
+    <footer class="foot">
+        <div class="container Row">
+            <section class="Column">
+                <h2>About Us</h2>
+                <ul>
+                    <li>
+                        <a class="footSub">test1</a>
+                    </li>
+                    <li>
+                        <a class="footSub">test2</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="Column">
+                <h2>Useful Links</h2>
+                <ul>
+                    <li>
+                        <a class="footSub" href="https://github.com/mummer4/mummer">Github</a>
+                    </li>
+                    <li>
+                        <a class="footSub" href="http://mummer.sourceforge.net/">SourceForge</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="Column">
+                <h2>Contact</h2>
+                <ul>
+                    <li>
+                        <a class="footSub">test1</a>
+                    </li>
+                    <li>
+                        <a class="footSub">test2</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
