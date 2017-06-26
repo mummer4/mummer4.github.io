@@ -11,8 +11,47 @@
         <div class="Row">
             <form class="login">
                 <h1>MUMmer</h1>
-                <a href="https://api.github.com/repos/mummer4/mummer/tarball/master"><img src="./icons/tar.png" id="tarBtn" onmouseover="this.src='./icons/tarHover.png'" onmouseout="this.src='./icons/tar.png'"></img></a>
-                <a href="https://api.github.com/repos/mummer4/mummer/zipball/master"><img src="./icons/zip.png" id="zipBtn" onmouseover="this.src='./icons/zipHover.png'" onmouseout="this.src='./icons/zip.png'"></img></a>
+                <script type="text/javascript">
+                    function returnJsonTar(text){
+                        var jsonResponse = JSON.parse(text);
+                        var link = document.createElement('a');
+                        link.href = jsonResponse.tarball_url;
+                        document.body.appendChild(link);
+                        link.click();
+                    }
+                    function httpGetTar(theUrl, callback)
+                    {
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.onreadystatechange = function() { 
+                            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                                callback(xmlHttp.responseText);
+                        }
+                        xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+                        xmlHttp.send(null);
+                    }
+                </script>
+                <script type="text/javascript">
+                    function returnJsonZip(text){
+                        var jsonResponse = JSON.parse(text);
+                        var link = document.createElement('a');
+                        link.href = jsonResponse.zipball_url;
+                        document.body.appendChild(link);
+                        link.click();
+                    }
+                    function httpGetZip(theUrl, callback)
+                    {
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.onreadystatechange = function() { 
+                            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                                callback(xmlHttp.responseText);
+                        }
+                        xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+                        xmlHttp.send(null);
+                    }
+                </script>
+
+                <a onclick="httpGetTar('https://api.github.com/repos/mummer4/mummer/releases/latest',returnJsonTar)"><img src="./icons/tar.png" id="tarBtn" onmouseover="this.src='./icons/tarHover.png'" onmouseout="this.src='./icons/tar.png'"></img></a>
+                <a onclick="httpGetTar('https://api.github.com/repos/mummer4/mummer/releases/latest',returnJsonZip)"><img src="./icons/zip.png" id="zipBtn" onmouseover="this.src='./icons/zipHover.png'" onmouseout="this.src='./icons/zip.png'"></img></a>
             </form>
         </div>
         <nav>
