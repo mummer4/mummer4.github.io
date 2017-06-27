@@ -97,8 +97,60 @@
     height: auto;
     width: auto\9; /* ie8 */
 }
-html,body
-{
+.dropdown-content {
+	margin-top: 0%;
+	background: #4A4A4E;
+	font-size: 11pt;
+	font-weight: bold;
+	position: absolute;
+	border-bottom: 2px solid #8c8b8e;
+    display: none;
+}
+.dropdown-content a {
+	min-width: 160px;
+	background: #4A4A4E;
+    text-decoration: none;
+    border-bottom: 1px solid #576979;
+    display: block;
+}
+.dropdown-content a:hover {
+	background-color: #8c99a4;
+	border-bottom: 2px solid orange;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: #8c99a4;
+	border-bottom: 2px solid orange;
+}
+.dropdown-content_sub {
+	left: 100%;
+	/*top: 0%;*/
+	margin-top: -27%;
+	background: #4A4A4E;
+	font-size: 11pt;
+	font-weight: bold;
+	position: absolute;
+	border-bottom: 2px solid #8c8b8e;
+    display: none;
+}
+.dropdown-content_sub a {
+	/*left: 100%;*/
+	min-width: 160px;
+	background: #4A4A4E;
+    text-decoration: none;
+    border-bottom: 1px solid #576979;
+    display: block;
+}
+.dropdown-content_sub a:hover {
+	background-color: #8c99a4;
+	border-bottom: 2px solid orange;
+}
+.dropdown_sub:hover .dropdown-content_sub {
+    display: block;
+    background-color: #8c99a4;
+	border-bottom: 2px solid orange;
+}
+html,body{
     height:100%;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }

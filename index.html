@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
     <title>MUMmer</title>
+    <script>
+        function createMenu(){
+            var navItems = [];
+
+            function returnJson(text){
+                var jsonResponse = JSON.parse(text);
+                for(var i=0;i<jsonResponse.length;i++){
+                    navItems.push({href: jsonResponse[i].html_url, text: jsonResponse[i].tag_name, zip: jsonResponse[i].zipball_url, tar: jsonResponse[i].tarball_url});
+
+                }
+
+                releaseID = document.getElementById("releases");
+
+                for (var i = 0; i < navItems.length; i++) {
+                    var navUL = document.createElement("ul");
+                    navUL.classList.add('right');
+                    var navLI = document.createElement("li");
+                    navLI.classList.add('dropdown_sub');
+                    var navDIV = document.createElement("div");
+                    navDIV.classList.add('dropdown-content_sub');
+                    navDIV.id="releases_sub";
+                    var entryA = document.createElement("a");
+                    var subAzip = document.createElement("a");
+                    var subAtar = document.createElement("a");
+
+                    entryA.href=navItems[i].href;
+                    entryA.innerHTML = navItems[i].text;
+
+                    subAzip.href=navItems[i].zip;
+                    subAzip.innerHTML="ZIP";
+                    subAtar.href=navItems[i].tar;
+                    subAtar.innerHTML="TAR";
+
+                    navDIV.appendChild(subAtar);
+                    navDIV.appendChild(subAzip);
+                    navLI.appendChild(entryA);
+                    navLI.appendChild(navDIV);
+                    navUL.appendChild(navLI);
+                    releaseID.appendChild(navUL);
+                }
+            }
+            function httpGetTar(theUrl, callback)
+            {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() { 
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                        callback(xmlHttp.responseText);
+                }
+                xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+                xmlHttp.send(null);
+            }
+            window.onload = function () {
+                httpGetTar('https://api.github.com/repos/mummer4/mummer/releases',returnJson);
+            }
+        };
+        createMenu()
+    </script>
 </head>
 <body id="head">
-    <!-- <a href="http://github.com/mummer4/mummer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a> -->
     <header class="navbar">
         <div class="Row">
             <form class="login">
@@ -60,7 +116,11 @@
                 <li><a href="manual/manual.html">Manual</a></li>
                 <li><a href="install/install.html">Installation</a></li>
                 <li><a href="tutorial/tutorial.html">Tutorials</a></li>
-                <li><a href="release/release.html">Releases</a></li>
+                <li class="dropdown">
+                    <a href="https://github.com/mummer4/mummer/releases">Releases</a>
+                    <div class="dropdown-content" id="releases">
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
