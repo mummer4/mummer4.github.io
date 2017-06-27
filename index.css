@@ -123,6 +123,7 @@
 	border-bottom: 2px solid orange;
 }
 .dropdown-content_sub {
+	z-index: 1;
 	left: 100%;
 	/*top: 0%;*/
 	margin-top: -27%;
@@ -134,6 +135,7 @@
     display: none;
 }
 .dropdown-content_sub a {
+	z-index: 1;
 	min-width: 160px;
 	background: #4A4A4E;
     text-decoration: none;
@@ -141,10 +143,12 @@
     display: block;
 }
 .dropdown-content_sub a:hover {
+	z-index: 1;
 	background-color: #8c99a4;
 	border-bottom: 2px solid orange;
 }
 .dropdown_sub:hover .dropdown-content_sub {
+	z-index: 1;
     display: block;
     background-color: #8c99a4;
 	border-bottom: 2px solid orange;
