@@ -11,7 +11,7 @@
             function returnJson(text){
                 var jsonResponse = JSON.parse(text);
                 for(var i=0;i<jsonResponse.length;i++){
-                    navItems.push({href: jsonResponse[i].html_url, text: jsonResponse[i].tag_name, zip: jsonResponse[i].zipball_url, tar: jsonResponse[i].tarball_url});
+                    navItems.push({href: jsonResponse[i].html_url, text: jsonResponse[i].tag_name, zip: jsonResponse[i].zipball_url, tar: jsonResponse[i].assets[0].browser_download_url});
 
                 }
 
@@ -26,19 +26,19 @@
                     navDIV.classList.add('dropdown-content_sub');
                     navDIV.id="releases_sub";
                     var entryA = document.createElement("a");
-                    var subAzip = document.createElement("a");
+                    //var subAzip = document.createElement("a");
                     var subAtar = document.createElement("a");
 
                     entryA.href=navItems[i].href;
                     entryA.innerHTML = navItems[i].text;
 
-                    subAzip.href=navItems[i].zip;
-                    subAzip.innerHTML="ZIP";
+                    //subAzip.href=navItems[i].zip;
+                    //subAzip.innerHTML="ZIP";
                     subAtar.href=navItems[i].tar;
                     subAtar.innerHTML="TAR";
 
                     navDIV.appendChild(subAtar);
-                    navDIV.appendChild(subAzip);
+                    //navDIV.appendChild(subAzip);
                     navLI.appendChild(entryA);
                     navLI.appendChild(navDIV);
                     navUL.appendChild(navLI);
